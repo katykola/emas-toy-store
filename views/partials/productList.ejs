@@ -1,0 +1,27 @@
+<div class="tiles">
+    <% products.forEach(product => { %>
+        <a href="/products/<%= product.id %>">
+            <div class="tile">
+                <img width="100%" src="<%= product.image %>" alt="">
+                <p class="tile-title"><%= product.name %></p>
+                <p class="tile-description"><%= product.description.length > 60 ? product.description.substring(0, 60) + '...' : product.description %></p>                
+                <% if(product.onSale){ %>
+                    <div class="tile-prices">
+                        <span class="tile-price">
+                            $<%= product.ProductsOnSale %>
+                        </span>
+                        <span class="tile-sale">
+                            SALE
+                        </span>
+                    </div>
+                <% } else { %>
+                    <div class="tile-prices">
+                        <span class="tile-price">
+                            $<%= product.price %>
+                        </span>
+                    </div>
+                <% } %>
+            </div>
+        </a>
+    <% }) %>
+    </div>

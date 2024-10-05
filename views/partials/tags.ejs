@@ -1,0 +1,9 @@
+<!-- Section to display all unique tags -->
+<div class="tags">
+    
+    <% tagsAll.forEach(tag => { %>
+        <a href="/products/category/<%= category %>?type=<%= tag %>" class="tag-item"><%= tag %></a>
+    <% }) %>
+
+</div>
+

@@ -1,0 +1,335 @@
+:root{
+    --primary-color: #FF6F20;
+    --secondary-color: #FFB74D;
+    --tertiary-color: #FF8C3D;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: "Raleway", sans-serif;
+}
+
+.logo{
+    margin: 1.5rem;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+
+    font-family: "Luckiest Guy", cursive;
+    /* font-family: "Pacifico", cursive; */
+    font-weight: 400;
+    font-style: normal;
+      
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #d0d0d0;
+    text-transform: uppercase;
+}
+
+.main{
+    margin: 0 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    flex: 1;
+    max-width: 1500px;
+    margin-top: 2rem;
+    width: 100%;
+
+    /* display: grid;
+    gap: 3rem;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto; */
+
+    display: flex; /* Use flexbox for the container */
+    gap: 3rem;
+
+}
+
+/* List of categories */
+
+.categories{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-bottom: 1px solid #d0d0d0;
+
+    flex: 0 0 250px; /* Fixed width for categories */
+}
+
+.categories-title{
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.categories a{
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+/* Category Image */
+
+.category {
+    position: relative;
+}
+
+.category-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px; /* Increased roundness for a softer, playful feel */
+    margin-bottom: 0.5rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a more dynamic look */
+}
+
+.category h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem; 
+    margin: 0.5rem 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    /* background-color: white; */
+    padding: 0.7rem 2.5rem; 
+    border-radius: 50px; 
+    font-family: "Coming Soon", cursive; 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
+    text-align: center; 
+}
+
+/* Tiles */
+
+.tiles{
+    display:grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: auto;
+
+    flex-grow: 1; /* Allow tiles to take up remaining space */
+}
+
+/* Reset styles for <a> elements within .tiles */
+.tiles a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color from parent */
+    display: block; /* Make the <a> element a block-level element */
+}
+
+.tile{
+    border: 1px solid #d0d0d0; 
+    padding: 0.5rem; 
+    margin: 1rem;
+    text-decoration: none;
+}
+
+/* Ensure all images within .tile have the same size */
+.tile img {
+    width: 100%; /* Set the width to 100% of the parent element */
+    height: 250px; /* Set a fixed height */
+    object-fit: cover; /* Ensure the image covers the entire area without distortion */
+}
+
+.tile-title{
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 2.5rem 0 1.5rem 0;
+}
+
+.tile-description{
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.tile-prices{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.tile-price {
+    font-size: 1.8rem; /* Slightly larger font */
+    font-weight: bold;
+    /* background-color: var(--tertiary-color);  */
+    background-color: var(--dark-color);
+    color: white; /* Dark text for contrast */
+    padding: 0.5rem 1.5rem;
+    border-radius: 12px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    display: inline-block; /* Ensure it fits its content */
+    transform: rotate(-2deg); /* Slight rotation for a fun, informal look */
+    transition: transform 0.3s ease; /* Add smooth transition */
+}
+
+.tile-price:hover {
+    transform: rotate(2deg) scale(1.05); /* Small hover effect for interactivity */
+}
+
+.tile-sale{
+    color: #E91E63;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Tags */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: start; 
+    margin: 1.5rem 0; 
+}
+
+.tag-item {
+    background-color: var(--secondary-color); 
+    color: var(--dark-color); 
+    padding: 10px 15px; 
+    margin: 5px; 
+    border-radius: 20px; 
+    font-family: "Coming Soon", cursive;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition effects */
+}
+
+.tag-item:hover {
+    background-color: #FF6F20; /* Change to a vibrant color on hover */
+    transform: scale(1.05); /* Slightly enlarge the tag */
+}
+
+/* Style for the selected tag */
+.tag-item.selected {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Buttons */
+
+.buttons-div{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: right;
+    margin-bottom: 2rem;
+}
+
+.button {
+    background-color: black; /* Bright orange color */
+    color: #FFFFFF; /* White text color */
+    font-size: 1rem; /* Font size */
+    padding: 12px 24px; /* Padding for a larger clickable area */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.button-primary {
+    background-color: #FF6F20; /* Bright orange color */
+}
+
+.button:hover {
+    background-color: #FF8C3D; /* Lighter orange on hover */
+}
+
+.button:active {
+    background-color: #FF5B00; /* Darker orange when clicked */
+    transform: scale(0.98); /* Slight scale down effect on click */
+}
+
+.button:disabled {
+    background-color: #D3D3D3; /* Gray color for disabled state */
+    color: #A9A9A9; /* Dark gray text color */
+    cursor: not-allowed; /* Not-allowed cursor */
+}
+
+.button a {
+    font-size: 1rem; /* Font size */
+    color: #FFFFFF; /* White text color */
+    text-decoration: none; /* No underline */
+}
+
+/* Product detail */
+
+.product-div{
+    /* width: 500px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.product-name{
+    margin-top: 0;
+    font-size: 2.5rem;
+    font-family: "Coming Soon", cursive;
+    text-transform: uppercase;
+}
+
+.product-description{
+    line-height: 1.7;
+    font-size: 1.2rem;
+    font-family: "Coming Soon", cursive;
+    margin: 3rem 0;
+    padding: 0 1rem;
+}
+
+.product-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.price{
+    font-size: 2rem;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    text-align: right;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+.price-sale{
+    text-decoration: line-through;
+}
+
+.price-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #d0d0d0;
+    margin-bottom: 2rem;
+}
+
+footer {
+    margin-top: auto; /* Push the footer to the bottom */
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    font-size: 0.9rem;
+}
