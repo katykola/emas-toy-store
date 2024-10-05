@@ -1,0 +1,45 @@
+<%- include('../partials/adminHeader') %>
+
+    <div>
+        <h1>Dashboard</h1>
+
+        <!-- Filter Form -->
+        <form class="filter-form" action="/admin/products" method="GET">
+
+            <label class="label" for="category">Filter by Category:</label>
+            <select class="select" id="category" name="category">
+                <option value="">All</option>
+                <option value="toys">Toys</option>
+                <option value="games">Games</option>
+                <option value="puzzles">Puzzles</option>
+                <option value="plush">Plush</option>
+            </select>
+
+            <label class="label" for="name">Filter by Name:</label>
+            <input class="input" type="text" id="name" name="name" placeholder="Enter product name">
+
+            <label class="label" for="price">Price Range:</label>
+            <input class="input" type="number" id="min-price" name="minPrice" placeholder="Min Price" min="0">
+            <input class="input" type="number" id="max-price" name="maxPrice" placeholder="Max Price" min="0">
+
+            <button class="button" type="submit">Filter</button>
+        </form>
+
+        <div class="products">
+            <div class="products-add"><button class="button">+ Add Product</button></div>
+            <% products.forEach(product => {%>
+                %>
+                <div class="product">
+                    <img style="width: 100px;" src="<%= product.image %>" alt="">
+                    <p><%= product.name %></p>
+                    <p><%= product.mainCategory %></p>
+                    <p><%= product.category %></p>
+                    <p><%= product.price %></p>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>

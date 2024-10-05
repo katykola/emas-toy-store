@@ -48,12 +48,6 @@ productSchema.statics.getUniqueCategories = async function() {
     return categories;
 };
 
-// Static method to get unique mainCategories from the database
-productSchema.statics.getUniqueMainCategories = async function() {
-    const mainCategories = await this.distinct('mainCategory'); // Get all unique categories
-    return mainCategories;
-};
-
 // Method to calculate discounted price
 productSchema.methods.getDiscountedPrice = function() {
     if (this.onSale) {
@@ -66,6 +60,28 @@ productSchema.methods.getDiscountedPrice = function() {
 productSchema.virtual('ProductsOnSale').get(function() {
     return this.onSale ? Math.floor(this.price * 0.8) : this.price;
 });
+
+// Static method to get categories grouped by mainCategory and sorted alphabetically
+productSchema.statics.getCategoriesByMainCategory = async function() {
+    const categoriesByMainCategory = await this.aggregate([
+        {
+            $group: {
+                _id: "$mainCategory", // Group by mainCategory
+                categories: { $addToSet: "$category" } // Collect unique categories
+            }
+        },
+        {
+            $sort: { _id: 1 } // Sort main categories alphabetically
+        }
+    ]);
+
+    // Sort categories within each main category
+    categoriesByMainCategory.forEach(group => {
+        group.categories.sort(); // Sort categories alphabetically
+    });
+
+    return categoriesByMainCategory;
+};
 
 const Product = mongoose.model('Product', productSchema); // Create a new model // Model je instance schema
 

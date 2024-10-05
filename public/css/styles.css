@@ -13,6 +13,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: "Raleway", sans-serif;
+    color: var(--dark-color);
 }
 
 .logo{
@@ -21,22 +22,42 @@ body{
     text-align: center;
     font-weight: bold;
     text-decoration: none;
-    color: black;
-
     font-family: "Luckiest Guy", cursive;
     /* font-family: "Pacifico", cursive; */
     font-weight: 400;
     font-style: normal;
-      
 }
 
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: #d0d0d0;
+.logo a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar {
+    padding: 1rem; 
+    background-color: var(--light-color); 
+}
+
+.nav-items{
+    display: flex; /* Arrange items in a row */
+    justify-content: space-around; /* Space items evenly */
+    list-style-type: none; /* Remove default list styles */
+    max-width: 1200px;
+    margin: auto;
+}
+
+.nav-item a{
+    font-weight: bold; /* Make text bold */
+    font-size: 1rem; /* Font size */
+    transition: color 0.3s ease; /* Smooth color transition */
+    color: #333; /* Text color */
+    text-decoration: none;
     text-transform: uppercase;
+}
+
+.nav-item:hover {
+    color: #ff6347; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
 .main{
@@ -47,18 +68,11 @@ body{
 
 .container{
     flex: 1;
-    max-width: 1500px;
+    max-width: 1200px;
     margin-top: 2rem;
     width: 100%;
-
-    /* display: grid;
+    display: flex; 
     gap: 3rem;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: auto; */
-
-    display: flex; /* Use flexbox for the container */
-    gap: 3rem;
-
 }
 
 /* List of categories */
@@ -91,6 +105,15 @@ body{
     position: relative;
 }
 
+.home-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px; /* Increased roundness for a softer, playful feel */
+    margin-bottom: 0.5rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a more dynamic look */
+}
+
 .category-image {
     width: 100%;
     height: 200px;
@@ -99,6 +122,7 @@ body{
     margin-bottom: 0.5rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a more dynamic look */
 }
+
 
 .category h1 {
     position: absolute;
@@ -115,6 +139,74 @@ body{
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
     text-align: center; 
 }
+
+.category p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(10%, 30%);
+    font-size: 1.5rem; 
+    margin: 0.5rem 0;
+    /* background-color: rgba(255, 255, 255, 0.95); */
+    color: white;
+    background-color: black;
+    padding: 0.7rem 2.5rem; 
+    border-radius: 50px; 
+    font-family: "Coming Soon", cursive; 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
+    text-align: center; 
+}
+
+.features-container {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Moderate space between grid items */
+    align-items: end;
+    margin-top: 1.2rem;
+    background-color: var(--light-color);
+    border-radius: 20px;
+}
+
+.feature {
+    background: var(--card-background); /* White background for each feature */
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s; /* Faster transitions */
+    box-shadow: 0 2px 5px var(--hover-shadow); /* Subtle shadow */
+}
+
+.feature-icon {
+    font-size: 2em; /* Larger icon size */
+    color: var(--primary-color); /* Use primary color for the icon */
+    margin-bottom: 10px; /* Space below the icon */
+}
+
+.feature:hover {
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: 0 5px 15px var(--hover-shadow); /* Enhanced shadow on hover */
+}
+
+.feature-image {
+    max-width: 100%;
+    height: 150px; /* Fixed height for uniformity */
+    border-radius: 10px; /* Rounded corners for images */
+    object-fit: cover; /* Ensures the image covers the space without distortion */
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+.feature-title {
+    color: var(--primary-color);
+    font-family: "Coming Soon", cursive;
+    font-size: 1.4em; /* Slightly larger title */
+    margin: 10px 0;
+}
+
+.feature-description {
+    font-size: 0.9em; /* Smaller description font */
+    line-height: 1.4; /* Improve readability */
+}
+
 
 /* Tiles */
 
@@ -325,6 +417,118 @@ body{
     margin-bottom: 2rem;
 }
 
+
+
+/* Contacts */
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
+}
+
+.contact-div{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Store Information */
+.store-info {
+    flex: 3;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.store-info h2 {
+    color: #ff9800;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.store-info p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Contact Form */
+.contact-form {
+    flex: 1;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    color: #ff9800;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    border-color: #ff9800;
+    outline: none;
+}
+
+button {
+    padding: 15px;
+    background-color: #ff9800;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e68900;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
 footer {
     margin-top: auto; /* Push the footer to the bottom */
     bottom: 0;
@@ -333,3 +537,5 @@ footer {
     text-align: center;
     font-size: 0.9rem;
 }
+
+

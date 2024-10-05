@@ -1,0 +1,197 @@
+:root{
+    --primary-color: #FF6F20;
+    --secondary-color: #FFB74D;
+    --tertiary-color: #FF8C3D;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.admin-dashboard {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.5rem;
+    color: #ff9800;
+    text-align: center;
+}
+
+/* Label, select */
+
+.label {
+    font-size: 1rem;
+    margin-right: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.select, .input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 20px;
+    transition: border-color 0.3s;
+}
+
+.select:focus, .input:focus {
+    border-color: #ff9800; /* Orange border on focus */
+    outline: none;
+}
+
+/* Form Styles */
+/* Auth Form  */
+.form-auth{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-auth .label,
+.form-auth .input {
+    margin: 0;
+    padding: 0.5rem 0;
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-auth .button{
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* Filter Form */
+.filter-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Navigation Links */
+.admin-links {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 10px 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-links a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.admin-links a:hover {
+    color: #e68900;
+}
+
+
+
+/* Buttons */
+
+.button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e68900;
+}
+
+/* Product List */
+
+.products{
+    max-width: 800px;
+    margin: auto;
+}
+
+.products-add{
+    display: flex;
+    justify-content: end;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+}
+
+.product img {
+    max-width: 80px;
+    border-radius: 8px;
+}
+
+.product p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 15px;
+}
+
+.product button,
+.products button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #e68900;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filter-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-form select, .filter-form input, .filter-form button {
+        margin-bottom: 15px;
+    }
+
+    .product {
+        flex-direction: column;
+        text-align: center;
+    }
+}

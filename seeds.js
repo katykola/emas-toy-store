@@ -63,8 +63,69 @@ const seedProducts = [
         tags: ['new'],
         image: "https://images.unsplash.com/photo-1516564927920-18dc97b117b4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         description: "Big Bear Plush Toy, the ultimate cuddle companion! Soft, huggable, and generously sized, this plush bear is perfect for snuggling, making it a comforting friend for kids and adults alike. Made from ultra-soft fabric, it’s great for cozying up at bedtime, decorating a room, or giving as a thoughtful gift. With its adorable face and fluffy fur, this big bear is sure to bring warmth and smiles wherever it goes. Perfect for hugging, lounging, or simply adding a touch of charm to any space!"
+    },    
+    {
+    name: 'Nordic Boys Sweater',
+    price: 29.99,
+    onSale: false,
+    mainCategory: 'clothes',
+    category: 'sweaters',
+    tags: ['new', 'custom'],
+    image: "https://images.unsplash.com/photo-1458223277009-775f9995fa31?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Introduce your little one to the cozy charm of winter fashion with our Nordic Patterned Boy's Sweater. Crafted from soft, breathable fabric, this sweater features a classic Nordic design that combines stylish gray with vibrant blue and eye-catching orange accents. Designed for comfort, this sweater offers a relaxed fit and ribbed cuffs to keep the chill at bay. Perfect for holiday outings or casual playdates, it adds warmth and style to any outfit!"
     },
+    {
+    name: 'Girls Pink Sweater',
+    price: 19.99,
+    onSale: true,
+    mainCategory: 'clothes',
+    category: 'sweaters',
+    tags: ['new', 'inStock'],
+    image: "https://images.unsplash.com/photo-1638339972006-aafc180da1d9?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "This lovely Girls Pink Sweater features beautiful nordic patterns that add a touch of style and warmth. Made from soft and cozy fabric, it comes in a delightful pink shade with blue and orange accents, perfect for any fashionable girl's wardrobe. Ideal for layering or wearing on its own, this sweater is perfect for chilly days, offering both comfort and a trendy look that girls will love."
+    },
+    {
+        name: 'Child’s Black Beanie',
+        price: 9.99,
+        onSale: false,
+        mainCategory: 'clothes',
+        category: 'hats',
+        tags: ['new', 'inStock'],
+        image: "https://images.unsplash.com/photo-1610708946258-54af43706e64?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        description: "Keep your little one warm and stylish with this Child’s Black Beanie. Finely knitted from soft, high-quality fabric, this beanie is designed for comfort and warmth during chilly days. The classic black color makes it versatile, allowing it to pair easily with any outfit. Lightweight yet cozy, it's perfect for outdoor adventures, school days, or simply lounging at home."
+    },
+    {
+        name: 'Grey Beanie with Ear Covers',
+        price: 12.99,
+        onSale: true,
+        mainCategory: 'clothes',
+        category: 'hats',
+        tags: ['new', 'custom'],
+        image: "https://images.unsplash.com/photo-1546193229-e200b04daf4e?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        description: "Stay warm and stylish with this Light Grey Beanie featuring ear covers. Crafted from soft, high-quality materials, this beanie is designed to keep your ears snug and warm during cold weather. The light grey color adds a touch of elegance, making it a versatile accessory for any outfit. Perfect for outdoor activities, winter sports, or simply enjoying a walk in the chilly air."
+    },
+    {
+        name: 'Cute Girls Beanie',
+        price: 15.99,
+        onSale: false,
+        mainCategory: 'clothes',
+        category: 'hats',
+        tags: ['inStock'],
+        image: "https://images.unsplash.com/photo-1638315437241-f1e96f456147?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        description: "This adorable Grey and Green Beanie is perfect for little girls! Featuring a cute design that adds charm to any outfit, this beanie is made from soft, cozy materials to keep little heads warm during chilly days. The playful color combination of grey and green makes it a delightful accessory for outdoor adventures, school days, or playdates. A must-have for stylish and comfortable winter wear!"
+    },
+    {
+        name: 'Baby Yoda Figure',
+        price: 5.99,
+        onSale: false,
+        mainCategory: 'toys',
+        category: 'LEGO',
+        tags: ['inStock'],
+        image: "https://images.unsplash.com/photo-1675339424109-06da9790aafb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        description: "Introducing the Baby Yoda Figure, perfect for fans of all ages! Standing small but mighty, this collectible figure brings everyone's favorite character to life with incredible detail. Whether you're a LEGO enthusiast or a Star Wars lover, this figure is a must-have for your collection. Made from high-quality materials, it's durable for play or display. The Baby Yoda Figure captures the essence of the beloved character, making it a delightful gift or addition to any toy shelf. Add some galactic charm to your day with this charming figure!"
+    }
 ];
+
 
 Product.insertMany(seedProducts) // Insert the seed products into the database
 .then(res => {
