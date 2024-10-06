@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Product</title>
-</head>
-<body>
+<%- include('../partials/adminHeader') %>
+
     <h1>Edit Product</h1>
-    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+    <form class="form-edit" action="/products/<%= product._id %>?_method=PUT" method="POST">
         <div>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" value="<%= product.name %>"> 
@@ -17,28 +11,33 @@
             <input type="text" id="image" name="image" value="<%= product.image %>"> 
         </div>
         <div>
-            <label for="price">Price</label>
-            <input type="number" id="price" name="price" value="<%= product.price %>"> 
+            <label for="description">Description</label>
+            <textarea rows="6" cols="100" name="description" id="description"value="<%= product.description %>"><%= product.description %>"</textarea> 
         </div>
         <div>
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" min="0" step="0.01" value="<%= product.price %>"> 
+        </div>
+        <div class="edit-tag">
             <label for="onSale">On Sale</label>
             <input type="checkbox" id="onSale" name="onSale" 
             <%= product.onSale ? 'checked' : '' %>>
         </div>
         <div>
-            <label for="description">Description</label>
-            <input type="text" id="description" name="description" value="<%= product.description %>"> 
+            <div class="edit-tags">
+                <label for="tags">Tags</label>
+                <% tags.forEach(tag => { %>
+                    <div class="edit-tag">
+                        <input type="checkbox" name="tags[]" value="<%= tag %>" <%= product.tags.includes(tag) ? 'checked' : '' %>>
+                        <label for="<%= tag %>"><%= tag %></label>
+                    </div>
+                <% }) %>
+            </div>
         </div>
-        <div>
-            <label for="tags">Tags</label>
-            <br>
-            <% tags.forEach(tag => { %>
-                <input type="checkbox" name="tags[]" value="<%= tag %>" <%= product.tags.includes(tag) ? 'checked' : '' %>>
-                <label for="<%= tag %>"><%= tag %></label>
-            <% }) %>
+        <div class="buttons-div">
+            <a href="/admin/Dashboard">Back To Dashboard</a>
+            <button class="button button-primary">Submit</button>
         </div>
-        <button>Submit</button>
-        <a href="/products">Back To Products</a>
     </form>
 </body>
 </html>

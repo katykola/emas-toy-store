@@ -30,7 +30,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/toy-store')
 
 app.get('/', (req, res) => { 
     console.log('home');
-    res.send('home'); 
+    res.redirect('/products'); 
 });
 
 //Admin
@@ -257,7 +257,7 @@ app.put('/products/:id', async (req, res) => { // Set the route for updating a p
         product.onSale = onSale === 'on';
         product.tags = Array.isArray(tags) ? tags : [tags];
         await product.save(); // Save the updated product to the database
-        res.redirect(`/products/${product._id}`); // Redirect to the product detail page
+        res.redirect('/admin/dashboard'); // Redirect to the product detail page
     } catch (err) {
         console.error(err);
         res.status(500).send('Internal Server Error');
@@ -268,7 +268,7 @@ app.put('/products/:id', async (req, res) => { // Set the route for updating a p
 app.delete('/products/:id', async (req, res) => { // Set the route for deleting a product
     try {
         await Product.findByIdAndDelete(req.params.id); // Delete the product with the specified id from the database
-        res.redirect('/products'); // Redirect to the products page
+        res.redirect('/admin/dashboard'); // Redirect to the products page
     } catch (err) { 
         console.error(err);
         res.status(500).send('Internal Server Error');

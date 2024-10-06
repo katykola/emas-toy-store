@@ -76,7 +76,7 @@ h1 {
 }
 
 /* Filter Form */
-.filter-form {
+.form-filter {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,6 +86,78 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
 }
+
+/* Edit form */
+
+.form-edit {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-edit a {
+    color: var(--dark-color);
+}
+
+.form-edit button{
+    margin-left: 1rem;
+}
+
+.form-edit label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-edit input,
+.form-edit textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+/* General styles for the tags section */
+.edit-tags {
+    display: flex;
+    margin-top: 10px; /* Space between the label and the checkboxes */
+}
+
+/* Style for each tag */
+.edit-tag {
+    display: flex; /* Align checkbox and label horizontally */
+    align-items: center; /* Center the checkbox and label vertically */
+    margin-bottom: 8px; /* Space between each tag */
+}
+
+/* Style for the checkbox input */
+.edit-tag input[type="checkbox"] {
+    margin-right: 8px; /* Space between checkbox and label */
+    cursor: pointer; /* Change cursor on hover */
+    width: 20px; /* Size of the checkbox */
+    height: 20px; /* Size of the checkbox */
+    accent-color: #007bff; /* Change checkbox color in supported browsers */
+}
+
+/* Style for the label */
+.edit-tag label {
+    font-size: 16px; /* Font size of the label */
+    color: #333; /* Text color */
+    cursor: pointer; /* Change cursor on hover */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect on the label */
+.edit-tag label:hover {
+    color: #007bff; /* Change text color on hover */
+}
+
+
 
 /* Navigation Links */
 .admin-links {
@@ -128,11 +200,23 @@ h1 {
     background-color: #e68900;
 }
 
+.buttons-div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 20px;
+}
+
 /* Product List */
 
 .products{
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
+}
+
+.products a{
+    text-decoration: none;
+    color: white;
 }
 
 .products-add{
