@@ -1,0 +1,40 @@
+<%- include('./partials/header') %>
+
+    <div class="basket-container">
+
+        <div class="category">
+            <img class="category-image" src="https://images.unsplash.com/photo-1563901935883-cb61f5d49be4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            <h1>Shopping Cart</h1>
+        </div>
+        
+        <div class="basket">
+            <% if (basket && basket.items.length > 0) { %>
+                <div>
+                    <% basket.items.forEach(item => { %>
+                        <div class="basket-item">
+                            <a href="/products/<%= item.product._id %>" class="item-name"><%= item.product.name %></a>
+                                <form action="/basket/update/<%= item.product._id %>" method="POST" style="display: inline;">
+                                <label for="quantity-<%= item.product._id %>">Quantity:</label>
+                                <input type="number" id="quantity-<%= item.product._id %>" name="quantity" value="<%= item.quantity %>" min="1" required>
+                                <button class="button button-small" type="submit">Update</button>
+                            </form>
+                            <p>$<%= item.totalPrice.toFixed(2) %></p>
+                            <form action="/basket/remove/<%= item.product._id %>" method="POST">
+                                <button class="button" type="submit">Remove All</button>
+                            </form>
+                        </div>
+                    <% }); %>
+                    </div>
+                    <h3 style="text-align: right;">Total Price: $<%= totalPrice.toFixed(2) %></h3>
+            <% } else { %>
+                <p>Your basket is empty.</p>
+            <% } %>
+            <div style="display: flex; justify-content: end; margin-top: 1rem;">
+                <button class="button button-primary">
+                    <a href="/products">Continue Shopping</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+<%- include('./partials/footer') %>

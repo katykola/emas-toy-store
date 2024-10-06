@@ -55,6 +55,13 @@ body{
     text-transform: uppercase;
 }
 
+.nav-item a svg {
+    margin-right: 0.5rem; /* Space between icon and text */
+    width: 20px; /* Adjust width */
+    height: 20px; /* Adjust height */
+    fill: currentColor; /* Fills the icon with the current text color */
+}
+
 .nav-item:hover {
     color: #ff6347; /* Change color on hover */
     transform: scale(1.1); /* Slightly enlarge on hover */
@@ -328,7 +335,7 @@ body{
 }
 
 .button {
-    background-color: black; /* Bright orange color */
+    background-color: var(--dark-color); /* Bright orange color */
     color: #FFFFFF; /* White text color */
     font-size: 1rem; /* Font size */
     padding: 12px 24px; /* Padding for a larger clickable area */
@@ -339,11 +346,19 @@ body{
 }
 
 .button-primary {
-    background-color: #FF6F20; /* Bright orange color */
+    background-color: var(--primary-color); /* Bright orange color */
+}
+
+.button-secondary {
+    background-color: var(--secondary-color); /* Bright orange color */
+}
+
+.button-small{
+    padding: 6px 12px;
 }
 
 .button:hover {
-    background-color: #FF8C3D; /* Lighter orange on hover */
+    background-color: var(--tertiary-color); /* Lighter orange on hover */
 }
 
 .button:active {
@@ -423,32 +438,22 @@ body{
 
 .contact-container {
     max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-areas: 
-        "photo photo"
-        "storeinfo form";
-    grid-template-columns: 1fr 1fr; /* Defines two equal columns */
-    gap: 2rem;
-    padding: 1.5rem;
-}
-
-.contact-image{
-    grid-area: photo;
-    grid-column: 1 / span 2; /* Ensure it spans two columns */
+    margin: 2rem auto;
+    position: relative;
 }
 
 .contact-store{
-    grid-area: storeinfo;
+    position: absolute;
+    top: 2rem;
+    right: 2rem ;
 }
 
-.contact-form{
-    grid-area: form;
-}
-
-.contact-container img{
+.contact-image{
     width: 100%; 
-    object-fit: cover; 
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
 }
 
 .contact-container h2 {
@@ -476,7 +481,6 @@ body{
 
 
 .contact-form form {
-    grid-area: form;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -527,6 +531,54 @@ body{
     h1 {
         font-size: 2.5rem;
     }
+}
+
+/* Shopping Cart */
+
+.basket-nav a{
+    color: var(--primary-color);
+}
+
+.basket-container{
+    margin: 2rem 0;
+    width: 800px;
+}
+.basket{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.basket h1{
+    font-family: "Coming Soon", cursive;
+    color: var(--primary-color);
+}
+
+.basket-item{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.basket-item input{
+    width: 50px;
+    padding: 0.5rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+}
+
+.basket-item .item-name{
+    display: block;
+}
+
+.item-name{
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: bold;
 }
 
 /* Footer */

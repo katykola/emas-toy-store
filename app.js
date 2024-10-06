@@ -6,6 +6,7 @@ const methodOverride = require('method-override'); // Import method-override
 
 
 const Product = require('./models/product'); // Import the Product model
+const Basket = require('./models/basket'); // Import the Basket model
 
 const tags = Product.getTagsEnum();
 
@@ -274,6 +275,108 @@ app.delete('/products/:id', async (req, res) => { // Set the route for deleting 
     }      
 }   
 ); 
+
+// Add item to shopping cart
+app.post('/basket/add/:productId', async (req, res) => {
+    try {
+        const { productId } = req.params;
+        const { quantity } = req.body;
+
+        let basket = await Basket.findOne();
+        if (!basket) {
+            basket = new Basket();
+        }
+        console.log(basket);
+
+        const itemIndex = basket.items.findIndex(item => item.product.toString() === productId);
+        if (itemIndex > -1) {
+            basket.items[itemIndex].quantity += parseInt(quantity, 10);
+        } else {
+            basket.items.push({ product: productId, quantity: parseInt(quantity, 10) });
+        }
+
+        await basket.save();
+        res.redirect('/basket');
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+// View basket
+app.get('/basket', async (req, res) => {
+    try {
+        const basket = await Basket.findOne().populate('items.product');
+        
+        // Calculate total price for each item and total price for all items
+        let totalPrice = 0;
+
+        if (basket) {
+            basket.items.forEach(item => {
+                // Calculate total price for each item (quantity * product price)
+                const itemTotal = item.quantity * item.product.price;
+                item.totalPrice = itemTotal; // Add total price to each item
+                totalPrice += itemTotal; // Add to overall total price
+            });
+        }
+
+        res.render('basket', { basket, totalPrice });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+// Update item quantity in basket
+app.post('/basket/update/:productId', async (req, res) => {
+    try {
+        const { productId } = req.params;
+        const { quantity } = req.body; // Get the new quantity from the request body
+
+        let basket = await Basket.findOne();
+        if (!basket) {
+            return res.redirect('/basket'); // If no basket exists, redirect to the basket
+        }
+
+        const itemIndex = basket.items.findIndex(item => item.product.toString() === productId);
+        if (itemIndex > -1) {
+            // Update quantity
+            basket.items[itemIndex].quantity = parseInt(quantity, 10); // Update with new quantity
+        } else {
+            // If item is not found, you might want to handle this case as well
+            return res.status(404).send('Item not found in basket');
+        }
+
+        await basket.save();
+        res.redirect('/basket'); // Redirect to the basket after updating
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error'); // Handle any errors
+    }
+});
+
+// Remove item from basket
+app.post('/basket/remove/:productId', async (req, res) => {
+    try {
+        const { productId } = req.params;
+
+        let basket = await Basket.findOne();
+        if (!basket) {
+            return res.redirect('/basket');
+        }
+
+        basket.items = basket.items.filter(item => item.product.toString() !== productId);
+
+        await basket.save();
+        res.redirect('/basket');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
 
 app.get('/contacts', (req, res) => { 
     res.render('contacts');
