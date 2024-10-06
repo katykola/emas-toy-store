@@ -1,8 +1,8 @@
 # Ema's Toy Store - E-shop
 
-![Design of the Emas Toy Store](./images/toy-store-screenshot.jpg)
+![Design of the Emas Toy Store](./public/images/toy-store-screenshot.jpg)
 
-![Design of the Emas Toy Store Backend](./images/toy-store-admin-screenshot.jpg)
+![Design of the Emas Toy Store Backend](./public/images/toy-store-admin-screenshot.jpg)
 
 Ema's Toy Store is an e-commerce platform built with JavaScript, CSS, and EJS, offering a seamless shopping experience for users looking to browse and purchase a variety of toys. The platform includes:
 
