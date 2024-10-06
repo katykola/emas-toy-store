@@ -118,6 +118,30 @@ app.post('/products', async (req, res) => { // Set the route for creating a new 
     }
 });
 
+// List all products on sale
+app.get('/products/on-sale', async (req, res) => {
+    try {
+        const categories = await Product.getUniqueCategories(); // Get unique categories from the database
+        const tagsAll = await Product.getTagsEnum(); // Get all tags
+
+        const productsOnSale = await Product.find({ onSale: true }); // Fetch products on sale
+
+        const categoriesByMainCategory = await Product.aggregate([
+            {
+                $group: {
+                    _id: "$mainCategory", // Group by mainCategory
+                    categories: { $addToSet: "$category" } // Collect unique categories
+                }
+            }
+        ]);
+
+        res.render('products/onSale', { products: productsOnSale, categories, tagsAll, categoriesByMainCategory }); // Render the products/on-sale.ejs file with the products data
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 //Show a product
 app.get('/products/:id', async (req, res) => { // Set the route for the product detail page
     try {

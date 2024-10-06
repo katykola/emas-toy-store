@@ -424,72 +424,73 @@ body{
 .contact-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px;
-    padding: 20px;
+    display: grid;
+    grid-template-areas: 
+        "photo photo"
+        "storeinfo form";
+    grid-template-columns: 1fr 1fr; /* Defines two equal columns */
+    gap: 2rem;
+    padding: 1.5rem;
 }
 
-.contact-div{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+.contact-image{
+    grid-area: photo;
+    grid-column: 1 / span 2; /* Ensure it spans two columns */
 }
 
-/* Store Information */
-.store-info {
-    flex: 3;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.contact-store{
+    grid-area: storeinfo;
 }
 
-.store-info h2 {
+.contact-form{
+    grid-area: form;
+}
+
+.contact-container img{
+    width: 100%; 
+    object-fit: cover; 
+}
+
+.contact-container h2 {
     color: #ff9800;
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    font-family: "Coming Soon", cursive;
 }
 
-.store-info p {
-    font-size: 1.2rem;
+.contact-container p {
+    font-size: 1rem;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
+
+.contact-div {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Contact Form */
-.contact-form {
-    flex: 1;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
 
-.contact-form h2 {
-    color: #ff9800;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
 
-form {
+.contact-form form {
+    grid-area: form;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 2rem;
 }
 
-label {
+.contact-form label {
     font-size: 1rem;
     font-weight: bold;
     color: #333;
 }
 
-input, textarea {
-    padding: 15px;
+.contact-form input, 
+.contact-form textarea {
+    padding: 1rem;
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -497,13 +498,14 @@ input, textarea {
     box-sizing: border-box;
 }
 
-input:focus, textarea:focus {
+.contact-form input:focus, 
+.contact-form textarea:focus {
     border-color: #ff9800;
     outline: none;
 }
 
-button {
-    padding: 15px;
+.contact-form button {
+    padding: 1rem;
     background-color: #ff9800;
     color: white;
     font-size: 1.2rem;
@@ -513,21 +515,21 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.contact-form button:hover {
     background-color: #e68900;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .contact-container {
+        display: flex;
         flex-direction: column;
-        gap: 20px;
     }
-
     h1 {
         font-size: 2.5rem;
     }
 }
+
+/* Footer */
 
 footer {
     margin-top: auto; /* Push the footer to the bottom */
